@@ -4,16 +4,19 @@ public void setup()
 }
 public void draw()
 {
-	fractal(800,800,800);
+	fractal(400,200,30);
 }
 public void fractal(int x, int y, int z)
-{
-	if(z >= 700)
+{	// biggest to smallest
+	// draws biggest first
+	if(y >= 800)
 	{
-		triangle(0,800,800,800,400,0);
+		ellipse(x,y,z,z);
 	}
-	else
+	else 
 	{
+		fractal(x,y+100,z+50);
+		ellipse(x,y,z,z);
 		
-	}
+	}	
 }
