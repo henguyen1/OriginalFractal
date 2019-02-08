@@ -4,19 +4,21 @@ public void setup()
 }
 public void draw()
 {
-	fractal(400,200,30);
+	fractal(400,400,800);
 }
-public void fractal(int x, int y, int z)
+public void fractal(float x, float y, float z)
 {	// biggest to smallest
 	// draws biggest first
-	if(y >= 800)
+	if(z <= 1)
 	{
 		ellipse(x,y,z,z);
 	}
 	else 
 	{
-		fractal(x,y+100,z+50);
-		ellipse(x,y,z,z);
-		
+		ellipse(x/2,y,z/2,z/2);
+		fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+		ellipse(x*(1.5),y,z/2,z/2);
+		fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
+		fractal(x/2,y,z/2);
 	}	
 }
